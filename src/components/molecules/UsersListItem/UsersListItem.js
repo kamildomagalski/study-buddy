@@ -13,7 +13,7 @@ const Wrapper = styled.li`
     bottom: 0;
     width: 100%;
     height: 1px;
-    background-color: #dfe2e8;
+    background-color: ${({ theme }) => theme.colors.underlineGrey};
   }
 `;
 
