@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Button from 'components/Button/Button.js';
+import Button from 'components/atoms/Button/Button.js';
 
 const Wrapper = styled.li`
   display: flex;
