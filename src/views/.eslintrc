@@ -2,7 +2,10 @@
     "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended", "prettier"],
     "plugins": ["prettier"],
     "rules": {
-        "prettier/prettier": ["error", { "singleQuote": true }]
+        "prettier/prettier": ["warn", {
+            "singleQuote": true,
+            "printWidth": 150
+        }]
         // tutaj mogą być reguły które np wyłączają wkurzające nas zasady ESlint-a
     },
     "env": {
