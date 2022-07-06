@@ -1,8 +1,16 @@
 {
-    "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended", "prettier/react"],
+    "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended", "prettier"],
     "plugins": ["prettier"],
     "rules": {
+<<<<<<< Updated upstream:src/views/.eslintrc
         "prettier/prettier": ["error", { "singleQuote": true }]
+=======
+        "prettier/prettier": ["warn", {
+            "singleQuote": true,
+            "printWidth": 150,
+            "endOfLine": "auto"
+        }]
+>>>>>>> Stashed changes:src/.eslintrc
         // tutaj mogą być reguły które np wyłączają wkurzające nas zasady ESlint-a
     },
     "env": {
