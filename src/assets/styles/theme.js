@@ -11,6 +11,7 @@ export const theme = {
     underlineGrey: '#dfe2e8',
   },
   fontSize: {
+    xl: '24px',
     l: '17px',
     m: '12px',
     s: '11px',

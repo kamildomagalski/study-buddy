@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { users as usersData } from 'data/users';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
-import { StyledList, Wrapper } from './UserList.styles';
+import { StyledList, StyledTitle, Wrapper } from './UserList.styles';
 
 function UsersList() {
   const [users, setUsers] = useState(usersData);
@@ -12,6 +12,7 @@ function UsersList() {
   };
   return (
     <Wrapper>
+      <StyledTitle>Students List</StyledTitle>
       <StyledList>
         {users.map((userData) => (
           <UsersListItem deleteUser={deleteUser} key={userData.name} userData={userData} />
