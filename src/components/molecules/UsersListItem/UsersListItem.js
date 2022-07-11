@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Button from 'components/atoms/Button/Button.js';
 import { Wrapper, StyledInfoWrapper, StyledGrade } from './UserListItem.styles';
 
-const UsersListItem = ({ userData: { average, name, attendance = '0%' } }) => {
+const UsersListItem = ({ deleteUser, userData: { average, name, attendance = '0%' } }) => {
   return (
     <Wrapper>
       <StyledGrade value={average}>{average}</StyledGrade>
       <StyledInfoWrapper>
         <p>
           {name}
-          <Button />
+          <Button onClick={() => deleteUser(name)} />
         </p>
         <p>attendance: {attendance}</p>
       </StyledInfoWrapper>
@@ -19,6 +19,7 @@ const UsersListItem = ({ userData: { average, name, attendance = '0%' } }) => {
 };
 
 UsersListItem.propTypes = {
+  deleteUser: PropTypes.func,
   userData: PropTypes.shape({
     average: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
