@@ -5,13 +5,14 @@ import { StyledList, StyledTitle, Wrapper } from './UserList.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
 
+const initialFormState = {
+  name: '',
+  attendance: '',
+  average: '',
+};
 function UsersList() {
   const [users, setUsers] = useState(usersData);
-  const [formValues, setFormValues] = useState({
-    name: '',
-    attendance: '',
-    average: '',
-  });
+  const [formValues, setFormValues] = useState(initialFormState);
 
   const handleFormChanges = (e) => {
     setFormValues({
@@ -35,11 +36,7 @@ function UsersList() {
 
     setUsers([newUser, ...users]);
 
-    setFormValues({
-      name: '',
-      attendance: '',
-      average: '',
-    });
+    setFormValues(initialFormState);
   };
   return (
     <>
