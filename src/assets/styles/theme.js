@@ -9,6 +9,7 @@ export const theme = {
     warning: '#E1D888',
     shadowGrey: '#737c8e',
     underlineGrey: '#dfe2e8',
+    lightPurple: '#ECEFF7',
   },
   fontSize: {
     xl: '24px',
