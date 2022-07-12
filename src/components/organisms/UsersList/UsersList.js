@@ -1,6 +1,7 @@
 import React from 'react';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { StyledList, StyledTitle, Wrapper } from './UserList.styles';
+import { GlobalWrapper } from 'assets/styles/globalStyle';
 
 function UsersList({ users, setUsers }) {
   const deleteUser = (name) => {
@@ -9,14 +10,14 @@ function UsersList({ users, setUsers }) {
   };
 
   return (
-    <Wrapper>
+    <GlobalWrapper>
       <StyledTitle>Students List</StyledTitle>
       <StyledList>
         {users.map((userData) => (
           <UsersListItem deleteUser={deleteUser} key={userData.name} userData={userData} />
         ))}
       </StyledList>
-    </Wrapper>
+    </GlobalWrapper>
   );
 }
 
