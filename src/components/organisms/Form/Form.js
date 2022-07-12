@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { GlobalWrapper, GlobalStyledTitle } from 'assets/styles/globalStyle';
 
 import FormField from 'components/molecules/FormField/FormField';
@@ -15,5 +16,15 @@ function Form({ formValues, handleAddUser, handleFormChanges }) {
     </GlobalWrapper>
   );
 }
+
+Form.propTypes = {
+  formValues: PropTypes.shape({
+    average: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    attendance: PropTypes.string.isRequired,
+  }),
+  handleAddUser: PropTypes.func.isRequired,
+  handleFormChanges: PropTypes.func.isRequired,
+};
 
 export default Form;

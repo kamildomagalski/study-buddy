@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Navigation from 'components/organisms/Navigation/Navigation';
 import UsersList from 'components/organisms/UsersList/UsersList';
 import { users as usersData } from 'data/users';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyle';
 import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Root.styles';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Form from 'components/organisms/Form/Form';
+import NavigationLink from 'components/atoms/NavLink/NavLink';
 
 const initialFormState = {
   name: '',
@@ -44,12 +46,12 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
-          <nav>
-            <Link to="/" exact="true">
+          <Navigation>
+            <NavigationLink to="/" exact="true">
               Home
-            </Link>
-            <Link to="/add-user">Add user</Link>
-          </nav>
+            </NavigationLink>
+            <NavigationLink to="/add-user">Add user</NavigationLink>
+          </Navigation>
           <Routes>
             <Route path="/add-user" element={<Form formValues={formValues} handleAddUser={handleAddUser} handleFormChanges={handleFormChanges} />} />
             <Route path="/" element={<UsersList users={users} setUsers={setUsers} />} />
