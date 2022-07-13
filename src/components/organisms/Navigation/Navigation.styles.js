@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
-  padding: 20px 0;
   height: 100vh;
   width: 100%;
   max-width: 110px;
@@ -14,7 +13,7 @@ export const Wrapper = styled.div`
   border-right: 1px solid ${({ theme }) => theme.colors.underlineGrey};
 
   ${Logo} {
-    margin-bottom: 30px;
+    margin: 20px 0 30px;
   }
 `;
 
