@@ -19,13 +19,3 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
     }
 `;
-
-export const GlobalWrapper = styled.div`
-  margin: 25px;
-  background-color: ${({ theme }) => theme.colors.white};
-  width: 100%;
-  max-width: 500px;
-  padding: 30px;
-  border-radius: 25px;
-  box-shadow: ${({ theme }) => `-2px 4px 10px 0px ${theme.colors.shadowGrey}`};
-`;
