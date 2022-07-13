@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { StyledList } from './UserList.styles';
 import { StyledTitle } from 'components/atoms/Title/StyledTitle';
+import { UsersContext } from 'providers/UsersProvider';
 
-function UsersList({ users, setUsers }) {
-  const deleteUser = (name) => {
-    const filteredUsers = users.filter((user) => user.name !== name);
-    setUsers(filteredUsers);
-  };
+function UsersList() {
+  const { users } = useContext(UsersContext);
 
   return (
     <>
       <StyledTitle>Students List</StyledTitle>
       <StyledList>
         {users.map((userData) => (
-          <UsersListItem deleteUser={deleteUser} key={userData.name} userData={userData} />
+          <UsersListItem key={userData.name} userData={userData} />
         ))}
       </StyledList>
     </>

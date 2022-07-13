@@ -8,52 +8,22 @@ import { Wrapper } from './Root.styles';
 import MainTemplate from 'components/templates/MainTemplate';
 import AddUser from './AddUser';
 import Dashboard from './Dashboard';
-
-const initialFormState = {
-  name: '',
-  attendance: '',
-  average: '',
-};
+import UsersProvider from 'providers/UsersProvider';
 
 const Root = () => {
-  const [users, setUsers] = useState(usersData);
-  const [formValues, setFormValues] = useState(initialFormState);
-
-  const handleFormChanges = (e) => {
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleAddUser = (e) => {
-    e.preventDefault();
-
-    const newUser = {
-      name: formValues.name,
-      attendance: formValues.attendance,
-      average: formValues.average,
-    };
-
-    setUsers([newUser, ...users]);
-
-    setFormValues(initialFormState);
-  };
-
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <MainTemplate>
-          <Wrapper>
-            <Routes>
-              <Route
-                path="/add-user"
-                element={<AddUser formValues={formValues} handleAddUser={handleAddUser} handleFormChanges={handleFormChanges} />}
-              />
-              <Route path="/" element={<Dashboard users={users} setUsers={setUsers} />} />
-            </Routes>
-          </Wrapper>
+          <UsersProvider>
+            <Wrapper>
+              <Routes>
+                <Route path="/add-user" element={<AddUser />} />
+                <Route path="/" element={<Dashboard />} />
+              </Routes>
+            </Wrapper>
+          </UsersProvider>
         </MainTemplate>
       </ThemeProvider>
     </Router>
