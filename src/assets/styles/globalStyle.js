@@ -29,8 +29,3 @@ export const GlobalWrapper = styled.div`
   border-radius: 25px;
   box-shadow: ${({ theme }) => `-2px 4px 10px 0px ${theme.colors.shadowGrey}`};
 `;
-
-export const GlobalStyledTitle = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.xl};
-  color: ${({ theme }) => theme.colors.shadowGrey};
-`;
