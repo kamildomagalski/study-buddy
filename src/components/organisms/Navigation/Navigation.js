@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Logo } from 'components/Logo/Logo';
 import { Wrapper } from './Navigation.styles';
+import { StyledNavLink } from './Navigation.styles';
 
-const Navigation = ({ children }) => {
+const Navigation = () => {
   return (
-    <Wrapper as="ul">
+    <Wrapper>
       <Logo>Study Buddy</Logo>
-      {children}
+      <StyledNavLink to="/">Dashboard</StyledNavLink>
+      <StyledNavLink to="/add-user">Add user</StyledNavLink>
     </Wrapper>
   );
 };
