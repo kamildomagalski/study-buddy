@@ -1,9 +1,10 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext } from 'react';
 import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
 import { StyledTitle } from 'components/atoms/Title/StyledTitle';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { UsersContext } from 'providers/UsersProvider';
+import { useForm } from 'hooks/useForm';
 
 const initialFormState = {
   name: '',
@@ -13,58 +14,10 @@ const initialFormState = {
   error: '',
 };
 
-const actionTypes = {
-  inputChange: 'INPUT CHANGE',
-  clearForm: 'CLEAR FORM',
-  toggleConsent: 'TOGGLE CONSENT',
-  throwError: 'THROW ERROR',
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case actionTypes.inputChange:
-      return {
-        ...state,
-        [action.payload.name]: [action.payload.value],
-      };
-    case actionTypes.clearForm:
-      return action.payload.initialFormState;
-    case actionTypes.toggleConsent:
-      return {
-        ...state,
-        consent: !state.consent,
-      };
-    case actionTypes.throwError:
-      return {
-        ...state,
-        error: action.payload.errorValue,
-      };
-    default:
-      return state;
-  }
-};
 function AddUser() {
-  const [formValues, dispatch] = useReducer(reducer, initialFormState);
   const { handleAddUser } = useContext(UsersContext);
+  const { formValues, handleFormChanges, handleClearForm, handleCheckConsent, handleThrowError } = useForm(initialFormState);
 
-  const handleFormChanges = (e) => {
-    dispatch({
-      type: actionTypes.inputChange,
-      payload: {
-        name: [e.target.name],
-        value: [e.target.value],
-      },
-    });
-  };
-  const handleClearForm = () => {
-    dispatch({ type: actionTypes.clearForm, payload: { initialFormState } });
-  };
-  const handleCheckConsent = () => {
-    dispatch({ type: actionTypes.toggleConsent });
-  };
-  const handleThrowError = (errorValue) => {
-    dispatch({ type: actionTypes.throwError, payload: { errorValue } });
-  };
   const handleSubmitUser = (e) => {
     e.preventDefault();
     if (formValues.consent) {
